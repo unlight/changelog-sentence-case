@@ -1,16 +1,18 @@
 {
-  "name": "semantic-release-sentence-case",
+  "name": "changelog-sentence-case",
   "version": "0.0.0-semantically-released",
   "license": "MIT",
-  "description": "semantic-release plugin that sentence-cases commit subjects in release notes and CHANGELOG.md",
+  "description": "Conventional-changelog writerOpts hook that sentence-cases commit subjects in release notes and CHANGELOG.md",
   "keywords": [
-    "semantic-release",
-    "semantic-release-plugin",
     "changelog",
-    "release-notes",
-    "sentence-case",
     "conventional-changelog",
-    "conventional-commits"
+    "conventional-changelog-writer",
+    "conventional-commits",
+    "writer-opts",
+    "sentence-case",
+    "release-notes",
+    "semantic-release",
+    "standard-version"
   ],
   "type": "module",
   "engines": {
@@ -19,12 +21,12 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/changelog-sentence-case.mjs",
+  "types": "./dist/changelog-sentence-case.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
+      "types": "./dist/changelog-sentence-case.d.ts",
+      "default": "./dist/changelog-sentence-case.mjs"
     }
   },
   "scripts": {
@@ -43,43 +45,38 @@
     "lint:w": "run-p tscheck:w eslint:w",
     "test:m": "node node_modules/@stryker-mutator/core/bin/stryker.js run"
   },
-  "dependencies": {
-    "@semantic-release/release-notes-generator": "^14.1.1"
-  },
-  "peerDependencies": {
-    "semantic-release": ">=25.0.0"
-  },
   "devDependencies": {
-    "@eslint/compat": "^2.1.0",
+    "@eslint/compat": "^2.1.1",
     "@eslint/js": "^10.0.1",
     "@semantic-release/changelog": "^7.0.0",
     "@semantic-release/git": "^11.0.1",
-    "@types/node": "^26.1.2",
-    "@typescript-eslint/utils": "^8.65.0",
+    "@semantic-release/release-notes-generator": "^14.1.1",
+    "@types/node": "^26.6.6",
+    "@typescript-eslint/utils": "^8.72.1",
     "@vitest/coverage-v8": "^5.1.0",
     "conventional-changelog-conventionalcommits": "^9.3.1",
     "conventional-changelog-writer": "^8.4.0",
-    "eslint": "^10.8.0",
+    "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-exception-handling": "^1.8.0",
     "eslint-plugin-import-x": "^4.17.1",
     "eslint-plugin-only-warn": "^1.2.1",
-    "eslint-plugin-perfectionist": "^5.10.0",
-    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-perfectionist": "^5.13.0",
+    "eslint-plugin-prettier": "^5.5.7",
     "eslint-plugin-typescript-paths": "^0.0.33",
-    "eslint-plugin-unicorn": "^72.0.0",
+    "eslint-plugin-unicorn": "^79.0.0",
     "eslint-plugin-wix-editor": "^3.3.0",
-    "globals": "^17.8.0",
+    "globals": "^17.14.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
-    "prettier": "^3.9.6",
-    "semantic-release": "^25.0.8",
+    "prettier": "^3.9.10",
+    "semantic-release": "^25.0.9",
     "tsconfig-paths": "^4.2.0",
-    "tsdown": "^0.22.14",
-    "tslib": "^2.8.1",
-    "typescript": "^6.0.0",
-    "typescript-eslint": "^8.65.0",
+    "tsdown": "^0.23.7",
+    "tslib": "^2.9.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
     "vitest": "^5.1.0"
   }
 }

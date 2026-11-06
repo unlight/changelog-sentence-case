@@ -60,6 +60,9 @@ export default defineConfig(
   },
   {
     rules: {
+      // The project writes JSDoc with leading asterisks.
+      'unicorn/no-asterisk-prefix-in-documentation-comments': 0,
+      'unicorn/single-line-block-comment-style': 0,
       'unicorn/name-replacements': [
         'warn',
         {
