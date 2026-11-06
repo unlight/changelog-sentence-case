@@ -14,6 +14,14 @@
     "semantic-release",
     "standard-version"
   ],
+  "homepage": "https://github.com/unlight/changelog-sentence-case#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unlight/changelog-sentence-case.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unlight/changelog-sentence-case/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=20.19.0"

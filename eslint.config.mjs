@@ -66,6 +66,10 @@ export default defineConfig(
       'unicorn/name-replacements': [
         'warn',
         {
+          allowList: {
+            // The public API mirrors the upstream `writerOpts` option name.
+            writerOpts: true,
+          },
           replacements: {
             args: false,
           },
