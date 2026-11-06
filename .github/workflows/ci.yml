@@ -8,8 +8,10 @@ jobs:
     name: 'Test, build, release'
     runs-on: ubuntu-latest
     permissions:
+      contents: write
+      issues: write
+      pull-requests: write
       id-token: write
-      contents: read
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v6
