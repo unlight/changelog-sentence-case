@@ -116,7 +116,7 @@ import { writerOpts, chainFinalizeContext } from 'changelog-sentence-case';
 | `writerOpts`           | `{ finalizeContext }`, ready to pass to a `writerOpts` option |
 | `chainFinalizeContext` | `(existingHook?) => hook`, composes your hook after ours      |
 
-Types are exported as well: `CommitLike`, `CommitGroupLike`, `ContextLike`, `FinalizeContextHook`. The hook returns a new context object and never mutates the one it receives.
+One type is exported: `FinalizeContextHook`, for annotating your own hook in TypeScript. The hook returns a new context object and never mutates the one it receives.
 
 ## Compatibility
 
