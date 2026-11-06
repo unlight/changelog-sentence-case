@@ -14,7 +14,7 @@ build() {
   cp README.md dist/README.md
 
   jq '
-    del(.scripts, .devDependencies)
+    del(.scripts, .devDependencies, .files)
     | .module  = "./\(.name).mjs"
     | .types   = "./\(.name).d.ts"
     | .exports = {
