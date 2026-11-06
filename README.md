@@ -72,6 +72,7 @@ This package is a function, so it needs a JavaScript or TypeScript config: `.rel
 | -------------------------- | ------------------------------------- |
 | Commit subjects            | `add thing` → `Add thing`             |
 | Scope prefix               | untouched: `**api:** Add retry logic` |
+| List bullet                | untouched, `*` comes from the preset  |
 | Issue references and links | untouched, produced by the preset     |
 | Breaking change notes      | untouched, authored text is preserved |
 | Commit messages in git     | untouched, they are never rewritten   |
