@@ -6,7 +6,7 @@ describe('sentenceCase', () => {
   it.each([
     ['add thing', 'Add thing'],
     ['fix CI', 'Fix CI'],
-    ['fix: typo', 'Fix: typo'],
+    ['api: v2 endpoint', 'Api: v2 endpoint'],
     ['Add already', 'Add already'],
     ['', ''],
     ['добавить команду', 'Добавить команду'],

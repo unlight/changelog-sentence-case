@@ -60,6 +60,14 @@ describe('writerOpts', () => {
     expect(notes).toContain('legacy config is removed');
   });
 
+  it('never renders the commit type as text', async () => {
+    const notes = await generate({ writerOpts: writerOptions });
+
+    expect(notes).toContain('* Correct typo in readme');
+    expect(notes).not.toContain('fix:');
+    expect(notes).not.toContain('Fix:');
+  });
+
   it('has no effect when the hook is not passed', async () => {
     const notes = await generate({});
 

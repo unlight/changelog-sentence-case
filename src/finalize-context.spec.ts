@@ -49,6 +49,17 @@ describe('finalizeContext', () => {
     });
   });
 
+  it('keeps the commit type untouched', () => {
+    const result = finalizeContext({
+      commitGroups: [{ commits: [{ subject: 'typo', type: 'fix' }] }],
+    });
+
+    expect(result.commitGroups?.[0]?.commits[0]).toMatchObject({
+      subject: 'Typo',
+      type: 'fix',
+    });
+  });
+
   it('does not mutate the input', () => {
     const context = createContext();
 
