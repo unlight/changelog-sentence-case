@@ -1,0 +1,30 @@
+#!/bin/bash
+PATH="$PWD/node_modules/.bin":$PATH
+set -e
+
+build() {
+  set -x
+  rm -rf dist
+  tsdown
+
+  NAME=$(jq -r '.name' package.json)
+
+  mv "dist/index.js"  "dist/${NAME}.mjs"
+  mv "dist/index.d.ts" "dist/${NAME}.d.ts"
+  cp README.md dist/README.md
+
+  jq '
+    del(.scripts, .devDependencies)
+    | .module  = "./\(.name).mjs"
+    | .types   = "./\(.name).d.ts"
+    | .exports = {
+        ".": {
+          types:   "./\(.name).d.ts",
+          default: "./\(.name).mjs"
+        }
+      }
+  ' package.json > dist/package.json
+  set +x
+}
+
+"$@"

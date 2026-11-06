@@ -1,0 +1,85 @@
+{
+  "name": "semantic-release-sentence-case",
+  "version": "0.0.0-semantically-released",
+  "license": "MIT",
+  "description": "semantic-release plugin that sentence-cases commit subjects in release notes and CHANGELOG.md",
+  "keywords": [
+    "semantic-release",
+    "semantic-release-plugin",
+    "changelog",
+    "release-notes",
+    "sentence-case",
+    "conventional-changelog",
+    "conventional-commits"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "test": "npm run eslint && npm run tscheck && npm run test:cov",
+    "test:r": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:w": "vitest watch",
+    "lint": "npm run eslint && npm run tscheck",
+    "eslint": "eslint src",
+    "eslint:w": "onchange -i -k \"**/*.ts\" -- \"npm run eslint\"",
+    "eslint:fix": "npm run eslint -- --fix",
+    "tscheck": "tsc --noEmit",
+    "tscheck:w": "npm run tscheck -- --watch",
+    "format:src": "prettier src --write",
+    "build": "bash Taskfile build",
+    "lint:w": "run-p tscheck:w eslint:w",
+    "test:m": "node node_modules/@stryker-mutator/core/bin/stryker.js run"
+  },
+  "dependencies": {
+    "@semantic-release/release-notes-generator": "^14.1.1"
+  },
+  "peerDependencies": {
+    "semantic-release": ">=25.0.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^2.1.0",
+    "@eslint/js": "^10.0.1",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/git": "^11.0.1",
+    "@types/node": "^26.1.2",
+    "@typescript-eslint/utils": "^8.65.0",
+    "@vitest/coverage-v8": "^5.1.0",
+    "conventional-changelog-conventionalcommits": "^9.3.1",
+    "conventional-changelog-writer": "^8.4.0",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-exception-handling": "^1.8.0",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-only-warn": "^1.2.1",
+    "eslint-plugin-perfectionist": "^5.10.0",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-typescript-paths": "^0.0.33",
+    "eslint-plugin-unicorn": "^72.0.0",
+    "eslint-plugin-wix-editor": "^3.3.0",
+    "globals": "^17.8.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "prettier": "^3.9.6",
+    "semantic-release": "^25.0.8",
+    "tsconfig-paths": "^4.2.0",
+    "tsdown": "^0.22.14",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^5.1.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "ts-node": {
+    "swc": false,
+    "transpileOnly": true,
+    "moduleTypes": {
+      "webpack.config.js": "cjs"
+    },
+    "require": ["tsconfig-paths/register"]
+  },
+  "compilerOptions": {
+    "target": "es2024",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "importHelpers": true,
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "dist",
+    "pretty": true,
+    "removeComments": false,
+    "sourceMap": false,
+    "declaration": true,
+    "declarationMap": false,
+    "skipLibCheck": true,
+    "rootDir": ".",
+    "lib": ["esnext"],
+    "types": ["node"],
+    "noEmit": true,
+    "rewriteRelativeImportExtensions": true,
+    "paths": {},
+    "plugins": []
+  },
+  "include": ["src"]
+}
