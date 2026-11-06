@@ -49,18 +49,18 @@ Both outputs are covered by that single hook: the GitHub/GitLab release is built
 
 ### Other tools
 
-Anything that forwards `writerOpts` to `conventional-changelog-writer` works the same way:
+Anything that forwards `writerOpts` to `conventional-changelog-writer` works the same way — merge the object into the options you already pass:
 
 ```js
-import { finalizeContext } from 'changelog-sentence-case';
+import { writerOpts } from 'changelog-sentence-case';
 
 const options = {
-  // ...the writer options you already use
-  finalizeContext,
+  ...yourWriterOptions,
+  ...writerOpts,
 };
 ```
 
-Use `writerOpts` when you want the ready-made object, or `finalizeContext` when you need to place the hook into an options object of your own.
+If `yourWriterOptions` already has a `finalizeContext`, do not spread over it: use `chainFinalizeContext` — see below.
 
 ### JSON and YAML configs are not supported
 
@@ -108,20 +108,13 @@ Your hook runs after ours: it receives sentence-cased subjects, gets the same wr
 ## API
 
 ```js
-import {
-  writerOpts,
-  finalizeContext,
-  chainFinalizeContext,
-  sentenceCase,
-} from 'changelog-sentence-case';
+import { writerOpts, chainFinalizeContext } from 'changelog-sentence-case';
 ```
 
 | Export                 | Description                                                   |
 | ---------------------- | ------------------------------------------------------------- |
 | `writerOpts`           | `{ finalizeContext }`, ready to pass to a `writerOpts` option |
-| `finalizeContext`      | `(context, ...args) => context`, the hook itself              |
-| `chainFinalizeContext` | `(existingHook?) => hook`, composes yours after ours          |
-| `sentenceCase`         | `(text: string) => string`, uppercases the first character    |
+| `chainFinalizeContext` | `(existingHook?) => hook`, composes your hook after ours      |
 
 Types are exported as well: `CommitLike`, `CommitGroupLike`, `ContextLike`, `FinalizeContextHook`. The hook returns a new context object and never mutates the one it receives.
 
