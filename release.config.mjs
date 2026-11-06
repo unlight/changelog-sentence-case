@@ -1,5 +1,6 @@
-// Dogfooding: the package resolves itself through its own `exports`, so `dist` must be built.
-import { writerOpts } from 'changelog-sentence-case';
+// Dogfooding from source: Node >= 22.18 strips types natively, so no build is needed.
+// `dist` is covered by the e2e check, not by this config.
+import { writerOpts } from './src/index.ts';
 
 /**
  * @type {import('semantic-release').GlobalConfig}
